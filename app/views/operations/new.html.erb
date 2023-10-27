@@ -1,0 +1,18 @@
+<%= form_with model: @operation do |form| %>
+    <div class='field'>
+      <%= form.label :name %>
+      <%= form.text_field :name %>
+    </div>
+
+    <div class='field'>
+      <%= form.label :amount %>
+      <%= form.number_fiel :amount %>
+    </div>
+
+    <%= fields_for: group_operations do |group_form| %>
+        <%= group_form.label :group_id %>
+        <%= group_form.collection_select :group_id, Group.all, :id, :name %>
+    <% end %>
+
+    <%= form.submit 'Save' %>
+<% end %>

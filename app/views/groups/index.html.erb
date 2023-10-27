@@ -1,0 +1,9 @@
+<div>
+<% if @groups.empty? %>
+  <span> No category yet </span>
+<% else %>
+  <% @groups.each do |g| %>
+    <div> <%= g.icon %></div> <div><%= g.name %></div>
+  <% end %>
+<% end %>
+</div>

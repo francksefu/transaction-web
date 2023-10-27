@@ -1,0 +1,15 @@
+<%= form_for @group do |f| %>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :icon %>
+    <%= f.text_field :icon %>
+  </div>
+  
+  <div class="action">
+    <%= f.submit 'Add Category'%>
+  </div>
+<% end %>
+
