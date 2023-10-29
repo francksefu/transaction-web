@@ -1,0 +1,11 @@
+<div class='mt-0' style='background-color: #3778c2'>
+  <%= render 'shared/header' %>
+</div>
+<div>
+<h2 class="text-primary"><%= @group.name %></h2>
+<ul>
+  <% @operation_group.each do |opera| %>
+    <li><span> <%= opera.name %></span><span> <%= opera.amount %> </span></li>
+  <% end %>
+</ul>
+</div>

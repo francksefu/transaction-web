@@ -41,6 +41,11 @@ gem "tzinfo-data", platforms: %i[ windows jruby ]
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
+#bootstrap 5
+gem "bootstrap"
+
+gem "sassc-rails"
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
@@ -63,9 +68,13 @@ end
 
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
-  gem "capybara"
-  gem "selenium-webdriver"
+  gem 'rspec-rails', '~> 6.0.0'
 end
 
 gem 'devise'
 gem 'cancancan'
+group :development, :test do
+  gem 'capybara'
+  gem 'factory_bot_rails'
+  gem 'selenium-webdriver'
+end

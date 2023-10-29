@@ -1,18 +1,38 @@
+<div class='mt-0' style='background-color: #3778c2'>
+  <%= render 'shared/header' %>
+</div>
 <%= form_with model: @operation do |form| %>
-    <div class='field'>
-      <%= form.label :name %>
-      <%= form.text_field :name %>
+    <div class='mb-3'>
+      <%= form.label :name, class: 'form-label' %>
+      <%= form.text_field :name, class: 'form-control' %>
     </div>
 
-    <div class='field'>
-      <%= form.label :amount %>
-      <%= form.number_fiel :amount %>
+    <div class='mb-3'>
+      <%= form.label :amount, class: 'form-label' %>
+      <%= form.number_field :amount, class: 'form-control' %>
     </div>
 
-    <%= fields_for: group_operations do |group_form| %>
+    <%= fields_for :group_operation, @operation.group_operations.build do |group_form| %>
         <%= group_form.label :group_id %>
-        <%= group_form.collection_select :group_id, Group.all, :id, :name %>
-    <% end %>
+        <%= group_form.collection_select :group_id, Group.all, :id, :name, { prompt: 'Select a group' }, id: "group_select", class: 'form-select' %>
+      <% end %>
 
-    <%= form.submit 'Save' %>
+      <%= form.hidden_field :extra_field, id: "extra_field_hidden" %>
+    <div>
+    <%= form.submit 'Save', class: 'btn btn-primary m-3' %>
+    </div>
+
 <% end %>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const groupSelect = document.getElementById("group_select");
+    const extraFieldHidden = document.getElementById("extra_field_hidden");
+
+    groupSelect.addEventListener("change", function () {
+      const selectedGroupId = groupSelect.value;
+      extraFieldHidden.value = selectedGroupId;
+    });
+  });
+</script>
+

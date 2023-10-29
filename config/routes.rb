@@ -11,4 +11,10 @@ Rails.application.routes.draw do
   # root "posts#index"
   resources :groups
   resources :operations
+
+  resources :groups do
+    member do
+      get 'group_operations'
+    end
+  end
 end

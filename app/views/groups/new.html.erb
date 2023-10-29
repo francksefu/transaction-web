@@ -1,15 +1,20 @@
+<div class='mt-0' style='background-color: #3778c2'>
+  <%= render 'shared/header' %>
+</div>
+
 <%= form_for @group do |f| %>
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+  <div class="mb-3">
+    <%= f.label :name, class: 'form-label' %>
+    <%= f.text_field :name, class: 'form-control'  %>
   </div>
-  <div class="field">
-    <%= f.label :icon %>
-    <%= f.text_field :icon %>
+  <div class="mb-3">
+    <%= f.label :icon, class: 'form-label' %>
+    <%= f.select :icon, options_for_select([["Coca logo", "coca.png"], ["tongue logo", "langue.png"], ["pepsi", "pepsi.png"], ["Senders", "senders.png"], ["W logo", "w.png"]], "coca.png") ,class: 'form-select' %>
+
   </div>
-  
+ 
   <div class="action">
-    <%= f.submit 'Add Category'%>
+    <%= f.submit 'Add Category', class: 'btn btn-primary'%>
   </div>
 <% end %>
 

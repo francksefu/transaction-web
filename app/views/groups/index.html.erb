@@ -1,9 +1,39 @@
+<div class='mt-0' style='background-color: #3778c2'>
+  <%= render 'shared/header' %>
+  <h2 class='text-center bg-transparent fw-lighter text-white'>Most recent</h2>
+</div>
+
+<div class='row'>
+<div class='col-4'>
+<h2 class='text-secondary'>Gift</h2>
+</div>
+<div class='col-3'>
+</div>
+<div class='col-4'>
+<h2 class='text-end text-secondary'>30 $</h2>
+</div>
+</div>
+
 <div>
 <% if @groups.empty? %>
   <span> No category yet </span>
 <% else %>
   <% @groups.each do |g| %>
-    <div> <%= g.icon %></div> <div><%= g.name %></div>
+    <a href="<%= group_operations_group_path(g) %>">
+    <div class="card mb-3" style="max-width: 540px;">
+    <div class="row g-0 d-flex justify-content-between">
+      <div class=" d-flex flex-row bd-highlight mb-3">
+      <img src="<%= asset_path(g.icon) %>" alt="My Image">
+      <span class="card-title text-secondary"><%= g.name %></span>
+      <span class="card-title">(<%= g.group_total %>$)</span>
+      </div>
+      
+    </div>
+  </div>
+    </a>
   <% end %>
 <% end %>
 </div>
+
+
+
