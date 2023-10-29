@@ -17,5 +17,4 @@ RSpec.describe OperationsController, type: :controller do
       expect(response).to be_successful
     end
   end
-  
 end

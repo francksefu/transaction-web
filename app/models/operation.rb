@@ -1,5 +1,4 @@
 class Operation < ApplicationRecord
-
   belongs_to :user
   has_many :group_operations
   has_many :groups, through: :group_operations
