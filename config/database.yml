@@ -86,7 +86,9 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
+
   <<: *default
   database: transaction_web_production
   username: transaction_web
   password: <%= ENV["TRANSACTION_WEB_DATABASE_PASSWORD"] %>
+  secret_key_base: '6af37810deb1682dc74807561bf4db19e9210e5dc44f53747c63f5fb8d09007ef3e851e06effc240ebdff77d50f8d8dc8f46a92ed78ae4be73aa421d8143aeab'
